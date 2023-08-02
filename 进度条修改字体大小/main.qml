@@ -25,8 +25,5 @@ FluWindow {
             font.pointSize:45
             text:"字体大小:45"
         }
-
     }
-
-
 }

@@ -12,15 +12,19 @@ QML_IMPORT_MAJOR_VERSION = 1
 
 @QmlElement
 class Bridge(QObject):
-
+    # 定义信号
+    btn1Sig = Signal(str)
+    btn2Sig = Signal(str)
     # 定义一个槽函数
-    @Slot(float, result=int)
-    def getSize(self, s):
-        size = int(s)
-        if size <= 0:
-            return 1
-        else:
-            return size
+    @Slot()
+    def changetext(self):
+        newtext = "changedtext"
+        self.btn1Sig.emit(newtext)
+
+    @Slot(str)
+    def settext(self,newtext):
+         self.btn2Sig.emit(newtext)
+
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
